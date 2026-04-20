@@ -1,0 +1,14 @@
+import re
+
+S = input()
+k = input()
+
+pattern = re.compile(r'(?=(' + k + '))')
+
+matches = list(pattern.finditer(S))
+
+if matches:
+    for m in matches:
+        print((m.start(1), m.start(1) + len(k) - 1))
+else:
+    print((-1, -1))
