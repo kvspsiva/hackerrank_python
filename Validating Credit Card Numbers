@@ -1,0 +1,15 @@
+import re
+
+def validate_card(card):
+    structure_match = re.match(r"^[456]\d{3}(-?\d{4}){3}$", card)
+    
+    if not structure_match:
+        return "Invalid"
+    
+    clean_card = card.replace("-", "")
+    
+    for i in range(len(clean_card) - 3):
+        if clean_card[i] == clean_card[i+1] == clean_card[i+2] == clean_card[i+3]:
+            return "Invalid"
+            
+    return "Valid"
