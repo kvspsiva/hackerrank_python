@@ -1,0 +1,18 @@
+from itertools import product
+
+k, m = map(int, input().split())
+
+lists = []
+for _ in range(k):
+    lists.append(list(map(int, input().split()))[1:])
+
+all_combinations = product(*lists)
+
+max_value = 0
+
+for combo in all_combinations:
+    current_result = sum(x**2 for x in combo) % m
+    if current_result > max_value:
+        max_value = current_result
+
+print(max_value)
