@@ -1,0 +1,14 @@
+import string
+
+def print_rangoli(size):
+    alphabet = string.ascii_lowercase
+    width = (size * 4) - 3
+    lines = []
+    
+    for i in range(size):
+        left_side = alphabet[size - 1 : size - 1 - i : -1]
+        right_side = alphabet[size - 1 - i : size]
+        row_chars = "-".join(left_side + right_side)
+        lines.append(row_chars.center(width, "-"))
+    
+    print("\n".join(lines + lines[:-1][::-1]))
